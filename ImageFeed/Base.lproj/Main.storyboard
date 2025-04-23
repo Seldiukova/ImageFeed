@@ -28,19 +28,52 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="243"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="DJf-k5-nOr">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="DJf-k5-nOr" userLabel="Cell Image">
                                                     <rect key="frame" x="16" y="4" width="361" height="235"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZv-09-Sq1" userLabel="Like Button">
+                                                    <rect key="frame" x="333" y="4" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="9Mv-7G-EDv"/>
+                                                        <constraint firstAttribute="height" constant="44" id="W22-Cm-idJ"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="Active"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGP-NC-4pW" userLabel="Date">
+                                                    <rect key="frame" x="23.999999999999993" y="215.33333333333334" width="102.33333333333331" height="15.666666666666657"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="cGP-NC-4pW" firstAttribute="leading" secondItem="DJf-k5-nOr" secondAttribute="leading" constant="8" id="9n8-XT-5EE"/>
                                                 <constraint firstAttribute="trailing" secondItem="DJf-k5-nOr" secondAttribute="trailing" constant="16" id="Fog-Vl-XPj"/>
+                                                <constraint firstItem="DJf-k5-nOr" firstAttribute="bottom" secondItem="cGP-NC-4pW" secondAttribute="bottom" constant="8" id="TDt-Fq-Dse"/>
                                                 <constraint firstAttribute="bottom" secondItem="DJf-k5-nOr" secondAttribute="bottom" constant="4" id="Vdj-If-JWK"/>
+                                                <constraint firstItem="sZv-09-Sq1" firstAttribute="top" secondItem="DJf-k5-nOr" secondAttribute="top" id="WIK-EL-uYi"/>
                                                 <constraint firstItem="DJf-k5-nOr" firstAttribute="leading" secondItem="DNg-0y-hVd" secondAttribute="leading" constant="16" id="WJ9-Si-A81"/>
+                                                <constraint firstItem="DJf-k5-nOr" firstAttribute="trailing" secondItem="sZv-09-Sq1" secondAttribute="trailing" id="cpL-9D-dbf"/>
+                                                <constraint firstItem="DJf-k5-nOr" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cGP-NC-4pW" secondAttribute="trailing" constant="8" id="ssa-NF-bOf"/>
                                                 <constraint firstItem="DJf-k5-nOr" firstAttribute="top" secondItem="DNg-0y-hVd" secondAttribute="top" constant="4" id="tgR-Wd-PeV"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" systemColor="tintColor"/>
+                                        <connections>
+                                            <outlet property="cellImage" destination="DJf-k5-nOr" id="WXq-k8-WY3"/>
+                                            <outlet property="dateLabel" destination="cGP-NC-4pW" id="etL-Zw-eyJ"/>
+                                            <outlet property="likeButton" destination="sZv-09-Sq1" id="1lK-n5-zHE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -58,6 +91,9 @@
                             <constraint firstAttribute="trailing" secondItem="Nnk-aw-AmX" secondAttribute="trailing" id="nYf-jJ-oUT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Nnk-aw-AmX" id="K9U-bf-kc0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,6 +102,7 @@
     </scenes>
     <resources>
         <image name="0" width="1600" height="1059"/>
+        <image name="Active" width="44" height="44"/>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
